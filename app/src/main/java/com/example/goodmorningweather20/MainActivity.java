@@ -2,11 +2,15 @@ package com.example.goodmorningweather20;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Fragment;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 
@@ -24,12 +29,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
     EditText inCity;
     TextView Result;
     TextView FeelsLike;
+    ImageView weatherIcon;
     private final String url = "https://api.openweathermap.org/data/2.5/weather";
     private final String appid = "7940c5e3e502f128d987daedaf9a60db";
     DecimalFormat df = new DecimalFormat("#");
@@ -42,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         inCity = findViewById(R.id.inCity);
         Result = findViewById(R.id.tvResult);
         FeelsLike = findViewById(R.id.FeelsLike);
+        weatherIcon = findViewById(R.id.weatherIcon);
 
     }
 
@@ -83,7 +92,10 @@ public class MainActivity extends AppCompatActivity {
                                 //+ "\n Cloudiness: " + clouds + "%";
                         FeelsLike.setText("Feels Like: "+df.format(feelsLike) + "°F" +"\n"+df.format(low)+"/"+df.format(high));
                         Result.setText(output);
+                        Result.setTextColor(Color.rgb(238, 238, 238));
                         inCity.setText(cityName+", "+countryName);
+                        Glide.with(weatherIcon).load(iconUrl).into(weatherIcon);
+
                     }catch(JSONException e){
                         e.printStackTrace();
                     }

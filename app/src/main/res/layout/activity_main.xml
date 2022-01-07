@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e8f4f8"
+    android:background="#212121"
     android:orientation="horizontal"
     android:padding="16dp"
     tools:context=".MainActivity">
@@ -15,21 +15,23 @@
         android:layout_height="102dp"
         android:layout_gravity="center"
         android:text="Time"
+        android:textColor="#EEEEEE"
         android:textAlignment="center"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.376"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.33" />
+        app:layout_constraintVertical_bias="0.359"
+        />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="317dp"
         android:layout_height="189dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="16dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,6 +43,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Enter City Name"
+            android:textColorHint="#EEEEEE"
+            android:textColor="#EEEEEE"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -55,8 +59,8 @@
             android:layout_height="37dp"
             android:background="#0070c7"
             android:onClick="getWeatherDetails"
-            android:text="Get"
-            android:textColor="@android:color/white"
+            android:text="Search"
+            android:textColor="#EEEEEE"
             app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/inCity"
@@ -69,7 +73,8 @@
             android:id="@+id/scrollView2"
             android:layout_width="93dp"
             android:layout_height="51dp"
-            android:layout_marginStart="116dp"
+            android:layout_marginStart="160dp"
+            android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -77,31 +82,41 @@
             <TextView
                 android:id="@+id/FeelsLike"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textColor="#EEEEEE"/>
         </ScrollView>
 
         <ScrollView
             android:id="@+id/scrollView3"
             android:layout_width="93dp"
             android:layout_height="51dp"
-            android:layout_marginEnd="108dp"
+            android:layout_marginEnd="64dp"
             app:layout_constraintBottom_toTopOf="@+id/scrollView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintVertical_bias="1.0"
+            >
 
 
             <TextView
                 android:id="@+id/tvResult"
+                android:textColor="#EEEEEE"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                />
         </ScrollView>
 
         <ImageView
+            android:id="@+id/weatherIcon"
             android:layout_width="94dp"
             android:layout_height="92dp"
-            tools:layout_editor_absoluteX="15dp"
-            tools:layout_editor_absoluteY="81dp">
+            android:layout_marginTop="36dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.201"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inCity"
+            app:layout_constraintVertical_bias="0.0">
 
         </ImageView>
 
